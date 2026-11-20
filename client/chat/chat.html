@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Secure Chat</title>
+  <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+
+  <h3>Secure Chat</h3>
+  <button id="logout">Logout</button>
+
+
+  <input id="toUser" placeholder="Send to user">
+  <div id="messages"></div>
+
+  <input id="msg" placeholder="Type message">
+  <button id="send">Send</button>
+
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <script type="module" src="chat.js"></script>
+</body>
+</html>

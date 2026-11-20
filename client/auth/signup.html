@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Secure Chat | Sign Up</title>
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+
+  <div class="auth-container">
+    <div class="auth-card">
+
+      <h2>📝 Create Account</h2>
+      <p class="subtitle">Join the Secure Chat Platform</p>
+
+      <input id="signupUser" type="text" placeholder="Username" />
+      <input id="signupPass" type="password" placeholder="Password" />
+      <input id="signupConfirm" type="password" placeholder="Confirm Password" />
+
+      <button onclick="signup()">Sign Up</button>
+
+      <p class="switch">
+        Already have an account?
+        <span onclick="goLogin()">Login</span>
+      </p>
+
+    </div>
+  </div>
+
+  <script>
+    function signup() {
+      const user = signupUser.value.trim();
+      const pass = signupPass.value.trim();
+      const confirm = signupConfirm.value.trim();
+
+      if (!user || !pass || !confirm) {
+        alert("All fields are required");
+        return;
+      }
+
+      if (pass.length < 6) {
+        alert("Password must be at least 6 characters");
+        return;
+      }
+
+      if (pass !== confirm) {
+        alert("Passwords do not match");
+        return;
+      }
+
+      if (localStorage.getItem("user_" + user)) {
+        alert("Username already exists");
+        return;
+      }
+
+      // Demo-only storage (replace with backend later)
+      localStorage.setItem("user_" + user, pass);
+
+      alert("Signup successful. Please login.");
+      window.location.href = "login.html";
+    }
+
+    function goLogin() {
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>

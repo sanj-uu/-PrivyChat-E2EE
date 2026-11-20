@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Secure Chat | Login</title>
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+
+  <div class="auth-container">
+    <div class="auth-card">
+
+      <h2>🔐 Secure Chat</h2>
+      <p class="subtitle">End-to-End Encrypted Messaging</p>
+
+      <input
+        id="loginUser"
+        type="text"
+        placeholder="Username"
+        autocomplete="username"
+      />
+
+      <input
+        id="loginPass"
+        type="password"
+        placeholder="Password"
+        autocomplete="current-password"
+      />
+
+      <!-- 🔐 LOGIN BUTTON -->
+      <button id="loginBtn">Login</button>
+
+      <p class="switch">
+        Don’t have an account?
+        <span id="signupLink">Sign up</span>
+      </p>
+
+    </div>
+  </div>
+
+  <!-- ✅ Socket.IO client (MANDATORY) -->
+  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+
+  <!-- ✅ Login logic + X3DH publish-prekeys -->
+  <script type="module" src="./login .js"></script>
+
+</body>
+</html>

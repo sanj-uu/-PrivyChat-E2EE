@@ -1,0 +1,15 @@
+
+
+//Sender Offline Receiver ke Prekeys Fetch kare
+socket.emit("get-prekeys", toUser);
+socket.on("get-prekeys", (username) => {
+  socket.emit("prekeys", prekeys[username]);
+  console.log("Fetched prekeys for", toUser, data);
+});
+
+const sharedSecret = await deriveSharedSecret(
+  myIdentity.privateKey,
+  receiverPrekey
+);
+
+await ratchet.initSession(sharedSecret, true);
