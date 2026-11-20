@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +28,6 @@
         autocomplete="current-password"
       />
 
-      <!-- 🔐 LOGIN BUTTON -->
       <button id="loginBtn">Login</button>
 
       <p class="switch">
@@ -38,11 +38,11 @@
     </div>
   </div>
 
-  <!-- ✅ Socket.IO client (MANDATORY) -->
-  <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+  <!-- Socket.IO client -->
+  <script src="/socket.io/socket.io.js"></script>
 
-  <!-- ✅ Login logic + X3DH publish-prekeys -->
-  <script type="module" src="./login .js"></script>
+  <!-- Login logic -->
+  <script type="module" src="./login.js"></script>
 
 </body>
 </html>

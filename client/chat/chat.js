@@ -12,7 +12,7 @@ window.decResults = [];
 const myUserId = localStorage.getItem("chatUser");
 if (!myUserId) {
   alert("Please login first");
-  window.location.href = "/client/login.html";
+  window.location.href = "/auth/login.html";
   throw new Error("Not logged in");
 }
 
@@ -22,7 +22,7 @@ console.log("LOGGED IN AS:", myUserId);
 
 /* ---------- SOCKET ---------- */
 
-const socket = io("http://localhost:3000");
+const socket = io();
 window.socket = socket;
 socket.emit("register", myUserId);
 
@@ -213,7 +213,7 @@ if (logoutBtn) {
   logoutBtn.onclick = () => {
     localStorage.removeItem("chatUser");
     socket.disconnect(); // inform server
-    window.location.href = "/client/auth/login.html";
+    window.location.href = "/auth/login.html";
   };
 }
 

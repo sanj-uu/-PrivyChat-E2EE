@@ -1,8 +1,15 @@
 const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
+const path = require("path");
 
 const app = express();
+// Serve PrivyChat frontend files
+app.use(express.static(path.join(__dirname, "../client")));
+app.get("/", (req, res) => {
+  res.redirect("/auth/login.html");
+});
+
 const server = http.createServer(app);
 
 const io = new Server(server, {
@@ -84,6 +91,8 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });

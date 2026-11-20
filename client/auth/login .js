@@ -4,7 +4,7 @@ import {
   generatePrekey
 } from "../crypto/x3dh.js";
 
-const socket = io("http://localhost:3000");
+const socket = io();
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -65,13 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // small delay so emit is sent
     setTimeout(() => {
-      window.location.href = "/client/chat/chat.html";
+      window.location.href = "/chat/chat.html";
     }, 300);
   });
 
   // ---------------- SIGNUP LINK ----------------
   signupLink.addEventListener("click", () => {
-    window.location.href = "/client/auth/signup.html";
+    window.location.href = "/auth/signup.html";
   });
 
 });
